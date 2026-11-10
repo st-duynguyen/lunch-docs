@@ -1,0 +1,9 @@
+name: docs
+on: [pull_request, push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/status.sh
+      - run: bash scripts/qc-lint.sh
