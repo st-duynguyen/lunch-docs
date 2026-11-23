@@ -11,6 +11,8 @@ Repo code nằm cạnh lunch-docs: `../lunch-api`, `../lunch-web` (phiên mở b
 3. Với từng phạm vi:
    - `be` → repo `../lunch-api`, việc trong `changes/<ID>-*/api.md`
    - `fe` → repo `../lunch-web`, việc trong `changes/<ID>-*/web.md`
+   **Trước khi code:** đọc `rules/api.md` (BE) hoặc `rules/web.md` (FE) trong lunch-docs và in ra các luật sẽ áp dụng
+   cho việc này (phiên mở ở lunch-docs có thể không tự nạp CLAUDE.md của repo code).
    Đọc `CLAUDE.md` của repo đó rồi làm theo CLAUDE.md §5 mục 7: `bash docs/scripts/docs-ref.sh --set`, viết test
    trước cho đỏ, code cho xanh, nhánh `feature/<ID>-Tn`, commit và PR **draft** có `[<ID>-Tn]` trong tiêu đề.
 4. `all`: làm BE rồi FE (hai repo độc lập, không chờ nhau).

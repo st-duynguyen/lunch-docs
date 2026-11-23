@@ -48,7 +48,8 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 6. Từ issue, **tech lead** viết một **PR docs** cho cả thay đổi: biên bản `requirements/<ngày>-<slug>.md` (chép nguyên
    văn từ issue), phiếu việc, contract (sửa cùng lúc JSON mẫu `contract/fixtures/`, `contract/CHANGELOG.md`),
    `scope.md`, `design/`, `features/`; chạy `bash scripts/status.sh`. Nhánh `feature/<ID>-<slug>`, tiêu đề
-   `docs: <ID> …`, mô tả PR ghi `Refs #<số issue>`. **PM / BA review** PR: tài liệu có đúng yêu cầu khách không;
+   `docs: <ID> …`, mô tả PR ghi `Refs #<số issue>`. Chỗ nào chưa rõ → ghi `open-questions.md`
+   trong cùng PR và comment lên issue để PM / BA hỏi khách. **PM / BA review** PR: tài liệu có đúng yêu cầu khách không;
    duyệt xong mới merge. **Link PR docs** là thứ chuyển cho dev, QC. Test case QC viết sau khi merge, PR riêng `qc: <ID> …`.
 7. Làm một việc `Tn` ở repo code: đọc phiếu việc + contract, `bash docs/scripts/docs-ref.sh --set`, viết test trước
    (đọc JSON mẫu, cho thấy đỏ) rồi code cho xanh; nhánh `feature/<ID>-Tn`, commit và PR có `[<ID>-Tn]` trong tiêu đề,
