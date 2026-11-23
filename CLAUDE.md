@@ -37,19 +37,19 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 
 ## 5. Quy trình
 
-0. Lời khách nói → biên bản `requirements/<yyyy-mm-dd>-<slug>.md`: ngày, ai nói, nguyên văn. Chưa phải cam kết.
+0. Yêu cầu mới: **PM / BA tạo issue** ở repo lunch-docs theo mẫu `.github/ISSUE_TEMPLATE/yeu-cau.md` (khách nói gì,
+   ai nói, ngày). Issue chưa phải cam kết.
 1. Mỗi yêu cầu là một phiếu việc `changes/<ID>-<slug>/` (`bash scripts/new-change.sh auto <slug> <thành phần…>`:
    ID tự tăng C001, C002…), việc mã `T1, T2…`.
 2. Tiêu đề PR code có `[<ID>-Tn]`; tiến độ suy từ git (`bash scripts/progress.sh`), không tick tay.
 3. Kỳ vọng test chỉ lấy từ contract / scope; chưa có nguồn → `⚠` + một dòng `open-questions.md`.
 4. Không sửa assertion / tắt test để CI xanh.
 5. Làm việc với Claude: các bước và prompt mẫu ở `claude-workflow.md` §2; AI tự làm gì, phải hỏi gì ở §7.
-6. Phiếu việc + contract của một thay đổi đi chung **một PR docs**: nhánh `feature/<ID>-<slug>`, PR vào `main`, tiêu đề `docs: <ID> …`. Người mở phiếu
-   việc mở PR này ở dạng draft ngay; người sau làm tiếp trên chính PR đó (`gh pr checkout <link>`), không mở PR mới.
-   **Link PR docs là thứ chuyển tay** giữa BA, lead, dev, QC. Đổi contract thì sửa cùng lúc JSON mẫu
-   `contract/fixtures/`, `contract/CHANGELOG.md`, tài liệu bị ảnh hưởng (`scope.md`, `design/`, `features/`);
-   chạy `bash scripts/status.sh`. Xong thì chuyển PR sang ready để review. Test case QC viết sau khi PR docs merge,
-   đi PR riêng `qc: <ID> …`.
+6. Từ issue, **tech lead** viết một **PR docs** cho cả thay đổi: biên bản `requirements/<ngày>-<slug>.md` (chép nguyên
+   văn từ issue), phiếu việc, contract (sửa cùng lúc JSON mẫu `contract/fixtures/`, `contract/CHANGELOG.md`),
+   `scope.md`, `design/`, `features/`; chạy `bash scripts/status.sh`. Nhánh `feature/<ID>-<slug>`, tiêu đề
+   `docs: <ID> …`, mô tả PR ghi `Refs #<số issue>`. **PM / BA review** PR: tài liệu có đúng yêu cầu khách không;
+   duyệt xong mới merge. **Link PR docs** là thứ chuyển cho dev, QC. Test case QC viết sau khi merge, PR riêng `qc: <ID> …`.
 7. Làm một việc `Tn` ở repo code: đọc phiếu việc + contract, `bash docs/scripts/docs-ref.sh --set`, viết test trước
    (đọc JSON mẫu, cho thấy đỏ) rồi code cho xanh; nhánh `feature/<ID>-Tn`, commit và PR có `[<ID>-Tn]` trong tiêu đề,
    mở PR **draft**. Merge do người quyết.
@@ -60,10 +60,10 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 
 | Vai | Viết / chịu trách nhiệm |
 |---|---|
-| PM / BA | `requirements/`, `scope.md`, phần “vì sao” của phiếu việc; hỏi khách các dòng `open-questions.md` |
-| Tech lead | `CLAUDE.md`, `claude-workflow.md`, `.claude/`, `scripts/`; chia việc `Tn` |
-| Lead BE + FE | `contract/`, `rules/` của phần mình |
-| Dev | `design/`, code, test; `traps.md` khi dính bẫy |
+| PM / BA | Tạo issue yêu cầu; **review PR docs** xem có đúng yêu cầu khách; hỏi khách các dòng `open-questions.md` |
+| Tech lead | **Viết PR docs** từ issue: `requirements/`, `changes/`, `contract/`, `scope.md`, `design/`, `features/`; chia việc `Tn`; giữ `CLAUDE.md`, `claude-workflow.md`, `.claude/`, `scripts/` |
+| Lead BE + FE | `rules/` của phần mình; góp ý contract trong PR docs |
+| Dev | Code, test theo PR docs đã merge; `traps.md` khi dính bẫy |
 | QC | `qc/`, duyệt `features/`; đóng issue sau khi tự kiểm |
 
 ## 7. Git
