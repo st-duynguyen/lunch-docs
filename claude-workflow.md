@@ -16,7 +16,7 @@ Một phiên làm được cả 3 repo. Claude tự đọc `CLAUDE.md`, `rules/`
 
 | Bước | Prompt mẫu | Claude làm | Người làm |
 |---|---|---|---|
-| 1. Issue | — (PM / BA tạo trên GitHub theo mẫu `yeu-cau`) | — | PM / BA ghi yêu cầu khách |
+| 1. Issue | `/issue-new khách nói: "…"` | Điền mẫu `yeu-cau`, cho xem trước, tạo issue trên GitHub | PM / BA kiểm, xác nhận |
 | 2. Phiếu việc | `/change-new <link issue>` | Chép yêu cầu vào `requirements/`, tạo `changes/<ID>-<slug>/`, chia `T1`, `T2` | Tech lead kiểm |
 | 3. PR docs | `Cập nhật contract, design, features cho thay đổi này: …` rồi `Tạo PR cho thay đổi này` | Sửa contract, JSON mẫu, scope, design, features, chạy `status.sh`, mở PR `Refs #<issue>` | PM / BA review, **merge** |
 | 4. Code | `/task <link PR docs> be` · `fe` · (trống = cả hai) | Test trước, code, PR draft `[<ID>-Tn]` | Review, **merge** |

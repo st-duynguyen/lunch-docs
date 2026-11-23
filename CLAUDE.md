@@ -37,7 +37,7 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 
 ## 5. Quy trình
 
-0. Yêu cầu mới: **PM / BA tạo issue** ở repo lunch-docs theo mẫu `.github/ISSUE_TEMPLATE/yeu-cau.md` (khách nói gì,
+0. Yêu cầu mới: **PM / BA tạo issue** ở repo lunch-docs (`/issue-new`, theo mẫu `.github/ISSUE_TEMPLATE/yeu-cau.md`: khách nói gì,
    ai nói, ngày). Issue chưa phải cam kết.
 1. Mỗi yêu cầu là một phiếu việc `changes/<ID>-<slug>/` (`bash scripts/new-change.sh auto <slug> <thành phần…>`:
    ID tự tăng C001, C002…), việc mã `T1, T2…`.
