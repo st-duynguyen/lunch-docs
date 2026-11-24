@@ -13,16 +13,17 @@ Tự động hóa: chưa có test e2e; nhãn ở §3 được `lunch-web/tests/r
 
 ## 2. Đường đi của người dùng
 
-- Mở trang → chọn món → nhập số lượng → nút **注文する** → thông báo **注文しました**.
+- Mở trang → chọn món → nhập số lượng → nút **Place order** → thông báo **Order placed**.
 
 ## 3. Handles
 
-Nhãn chuẩn trên màn hình. FE đặt đúng chữ này (gom ở `src/i18n/ja.js`), QC kiểm đúng chữ này.
+Nhãn chuẩn trên màn hình. FE đặt đúng chữ này (gom ở `src/i18n/en.js`), QC kiểm đúng chữ này.
 
 | Handle | Nhãn |
 |---|---|
-| btn-order | 注文する |
-| msg-done | 注文しました |
+| btn-order | Place order |
+| msg-done | Order placed |
+| msg-error | Could not place order |
 
 ## 4. Kịch bản kiểm chứng (chạy sau deploy)
 
@@ -31,7 +32,7 @@ mở http://localhost:8002/?api=real.
 
 - **Bước 1: xem menu.** Mở trang → thấy 2 món Cơm gà, Bún chả.
   Đối chiếu: `curl -s localhost:8001/api/menus` → `items` có 2 phần tử.
-- **Bước 2: đặt món.** Chọn Cơm gà, số lượng 1, bấm **注文する** → thấy **注文しました**.
+- **Bước 2: đặt món.** Chọn Cơm gà, số lượng 1, bấm **Place order** → thấy **Order placed**.
   Đối chiếu: `curl -s localhost:8001/api/orders/o_001` → `status: PLACED`, `menuId: m1`.
 - **Bước 3: số lượng sai.** `curl -s -X POST localhost:8001/api/orders -H 'Content-Type: application/json'
   -d '{"menuId":"m1","quantity":6}'` → `422`, `code: VALIDATION_ERROR`.

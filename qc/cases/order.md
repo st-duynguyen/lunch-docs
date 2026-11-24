@@ -5,7 +5,7 @@ Feature `features/order.md`. Cách viết: `qc/README.md` §2.
 | ID | Chức năng con | Loại | P | Các bước | Kỳ vọng | Nguồn |
 |---|---|---|---|---|---|---|
 | TC-order-001 | xem-menu | Bình thường | P1 | Mở trang | Thấy 2 món: Cơm gà, Bún chả | contract/endpoints.md §2 |
-| TC-order-002 | dat-mon | Bình thường | P1 | Đặt Cơm gà, số lượng 1 | 201, status PLACED, thấy 注文しました | contract/endpoints.md §3 |
+| TC-order-002 | dat-mon | Bình thường | P1 | Đặt Cơm gà, số lượng 1 | 201, status PLACED, thấy Order placed | contract/endpoints.md §3 |
 | TC-order-003 | dat-mon | Biên | P2 | Đặt Cơm gà, số lượng 5 | 201 | contract/endpoints.md §3 |
 | TC-order-004 | dat-mon | Lỗi | P1 | Đặt Cơm gà, số lượng 6 | 422 VALIDATION_ERROR | contract/endpoints.md §3 |
 | TC-order-005 | dat-mon | Lỗi | P2 | Đặt món có menuId không tồn tại | 422 VALIDATION_ERROR | contract/endpoints.md §3 |
