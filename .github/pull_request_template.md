@@ -2,10 +2,7 @@
 
 Phiếu việc: C00x · Issue: Refs #… (không dùng Closes)
 
-Người review:
-- BA: `changes/<ID>/requirement.md` đúng yêu cầu khách chưa
-- QC: `features/` (kịch bản, tên nút) kiểm được chưa
-- Dev / tech lead (người không mở PR): scope, contract, design
+Người review: BA (tài liệu có đúng yêu cầu khách chưa); ổn thì BA merge
 
 ## Kiểm
 

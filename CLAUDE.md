@@ -62,11 +62,11 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 
 | Vai | Viết / chịu trách nhiệm |
 |---|---|
-| PM / BA | Tạo issue; giữ `requirements/` (lời khách, biên bản, spec màn hình, prototype); review `requirement.md` trong PR docs; hỏi khách các câu hỏi mở |
+| PM / BA | Tạo issue; giữ `requirements/` (lời khách, biên bản, spec màn hình, prototype); **review và merge PR docs**; hỏi khách các câu hỏi mở |
 | Tech lead | **Viết PR docs** từ issue: `changes/`, `scope.md`, `contract/`, `design/`, `features/`, `decisions.md`, `open-questions.md`; chia việc `Tn`; giữ `CLAUDE.md`, `claude-workflow.md`, `.claude/`, `scripts/` |
 | Lead BE + FE | `rules/` của phần mình |
-| Dev | Review PR docs; code, test theo PR docs đã merge; `traps.md` khi dính lỗi khó thấy |
-| QC | Review `features/` trong PR docs; `qc/`: test case, chạy verify sau deploy; đóng issue sau khi tự kiểm |
+| Dev | Code, test theo PR docs đã merge; `traps.md` khi dính lỗi khó thấy |
+| QC | `qc/`: test case, chạy verify sau deploy; đóng issue sau khi tự kiểm |
 
 ## 7. Git
 
