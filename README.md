@@ -7,7 +7,7 @@ qua symlink `docs/` và khóa phiên bản bằng file `.docs-ref`.
 |---|---|
 | `CLAUDE.md` | Luật chơi chung là gì? |
 | `scope.md` | Có làm không? (use case + tiêu chí chấp nhận) |
-| `requirements/` | Khách đã nói gì? (đầu vào thô, chưa là cam kết) |
+| `requirements/` | Khách muốn gì? Lời khách, biên bản, spec màn hình, prototype (BA giữ, chưa là cam kết) |
 | `contract/` | API ra sao? (field, mã lỗi, JSON mẫu `fixtures/`) |
 | `design/` | Hệ thống đang thế nào? |
 | `changes/` | Đang làm việc gì? (mỗi yêu cầu một phiếu việc, việc mã `Tn`) |

@@ -11,7 +11,7 @@ Web đặt cơm trưa cho team: xem menu, đặt món trước 11:00. Phạm vi 
 | Repo | Nội dung |
 |---|---|
 | `lunch-docs` | Tài liệu (repo này) |
-| `lunch-api` | BE Python, thư viện chuẩn, `GET /api/menus`, `POST /api/orders` |
+| `lunch-api` | BE Python, thư viện chuẩn; endpoint ở `contract/endpoints.md` §1 |
 | `lunch-web` | FE HTML + JS, chạy được với `FakeApi` đọc `contract/fixtures/` |
 
 Phối hợp 3 repo: repo code có `docs/` là symlink tới `../lunch-docs` và file `.docs-ref` ghi commit docs đang theo.
@@ -19,7 +19,7 @@ PR docs merge trước, PR code sau. Mỗi repo một nhánh việc, một PR.
 
 ## 3. Nguồn sự thật (theo thứ tự)
 
-`scope.md` → `contract/` → `design/` + `changes/` → `features/` → `qc/` → `decisions.md`.
+`scope.md` → `contract/` → `design/` + `changes/` → `features/` → `qc/`.
 Hai nơi nói khác nhau → **dừng, báo**, không tự đoán rồi code tiếp.
 
 ## 4. Contract
@@ -71,6 +71,6 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 ## 7. Git
 
 - Nhánh `feature/<ID>-<slug>` (docs) hoặc `feature/<ID>-Tn` (code), không commit thẳng `main`.
-- AI được tự commit, push nhánh việc, mở PR **draft**. PR thường, merge, push `main`: hỏi người
+- AI được tự commit, push nhánh việc, mở PR **draft**. PR thường, merge, push `main`, tạo issue, comment lên GitHub: hỏi người
   (hook `.claude/hooks/guard.py` đọc `.claude/hooks/guard.conf`).
 - PR ghi `Refs #N`, không `Closes`: QC đóng issue sau khi tự kiểm.

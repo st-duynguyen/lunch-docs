@@ -9,20 +9,20 @@ Luật phải giữ ở `CLAUDE.md` §5, ai chịu trách nhiệm ở `CLAUDE.md
 cd lunch-docs && claude --add-dir ../lunch-api ../lunch-web
 ```
 
-Một phiên làm được cả 3 repo. Claude tự đọc `CLAUDE.md`, `rules/` của phần đang sửa, và các lệnh `/…` trong
-`.claude/skills/`. Hook `.claude/hooks/guard.py` chạy trước mỗi lệnh shell của Claude.
+Một phiên làm được cả 3 repo. Claude tự đọc `CLAUDE.md` và các lệnh `/…` trong `.claude/skills/`; `rules/` của phần
+đang sửa do `/task` đọc trước khi code. Hook `.claude/hooks/guard.py` chạy trước mỗi lệnh shell của Claude.
 
 ## 2. Các bước của một thay đổi
 
 | Bước | Prompt mẫu | Claude làm | Người làm |
 |---|---|---|---|
 | 1. Issue | `/issue-new khách nói: "…"` | Điền mẫu `yeu-cau`, cho xem trước, tạo issue trên GitHub | PM / BA kiểm, xác nhận |
-| 2. Phiếu việc | `/change-new <link issue>` | Chép yêu cầu vào `requirements/`, tạo `changes/<ID>-<slug>/`, chia `T1`, `T2` | Tech lead kiểm |
+| 2. Phiếu việc | `/change-new <link issue>` | Đọc issue, tạo `changes/<ID>-<slug>/` (requirement.md trỏ về issue), chia `T1`, `T2` | Tech lead kiểm |
 | 3. PR docs | `Cập nhật contract, design, features cho thay đổi này: …` rồi `Tạo PR cho thay đổi này` | Sửa contract, JSON mẫu, scope, design, features, chạy `status.sh`, mở PR `Refs #<issue>` | BA review, ổn thì BA **merge** |
-| 4. Code | `/task <link PR docs> be` · `fe` · (trống = cả hai) | Test trước, code, PR draft `[<ID>-Tn]` | Review, **merge** |
-| 5. Test case | `/qc-test-cases theo <link PR docs>` | Thêm case, đánh `⚠` chỗ chưa có nguồn | Hỏi khách các `⚠` |
+| 4. Code | `/task <link PR docs> be` · `fe` · (trống = cả hai) | Đọc `rules/`, test trước, code, PR draft `[<ID>-Tn]` | Dev khác review, **merge** |
+| 5. Test case | `/qc-test-cases theo <link PR docs>` | Thêm case, đánh `⚠` chỗ chưa có nguồn | QC review; BA hỏi khách các `⚠` |
 | 6. Tiến độ | `bash scripts/progress.sh` | — | Đọc kết quả |
-| 7. Kiểm chứng | `/dev-verify order` | Chạy kịch bản `features/`, ghi `qc/runs/` | Đóng issue |
+| 7. Kiểm chứng | `/dev-verify order` | Chạy kịch bản `features/`, ghi `qc/runs/` | QC đóng issue |
 
 Bước 2–3 do tech lead làm trong một phiên. Bước 4 chỉ bắt đầu khi PR docs ở bước 3 đã merge (`CLAUDE.md` §4).
 
