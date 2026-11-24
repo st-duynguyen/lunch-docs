@@ -2,7 +2,7 @@
 
 Phiếu việc: C00x · Issue: Refs #… (không dùng Closes)
 
-Người review: PM / BA (kiểm đúng yêu cầu khách) · QC (kiểm `features/` có kiểm được không)
+Người review: dev / tech lead (người không mở PR)
 
 ## Kiểm
 
