@@ -46,13 +46,10 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 4. Không sửa assertion / tắt test để CI xanh.
 5. Làm việc với Claude: các bước và prompt mẫu ở `claude-workflow.md` §2; AI tự làm gì, phải hỏi gì ở §7.
 6. Từ issue, **tech lead** viết một **PR docs** cho cả thay đổi, nhánh `feature/<ID>-<slug>`, tiêu đề `docs: <ID> …`,
-   mô tả ghi `Refs #<số issue>`. Viết `changes/<ID>-<slug>/` trước (vì sao, chia việc `Tn`; `requirement.md` trỏ tới
-   issue và `requirements/`, không chép lại), rồi `scope.md`, contract (cùng JSON mẫu `contract/fixtures/`,
-   `contract/CHANGELOG.md`), `design/`, `features/`, `decisions.md` (quyết định thiết kế của thay đổi); chạy
-   `bash scripts/status.sh`. Chỗ chưa rõ → tech lead ghi `open-questions.md` (kèm mặc định để không phải chờ) và
-   comment lên issue; **BA** hỏi khách, **comment câu trả lời lên issue**; tech lead ghi vào cột Chốt và sửa scope /
-   contract. **Dev / tech lead review lẫn nhau** rồi merge. **Link PR docs** là thứ chuyển cho dev, QC. Test case QC
-   viết sau khi merge, PR riêng `qc: <ID> …`.
+   mô tả ghi `Refs #<số issue>`: `changes/<ID>-<slug>/` (vì sao, chia việc `Tn`; `requirement.md` trỏ tới issue và
+   `requirements/`, không chép lại), `scope.md`, contract (cùng JSON mẫu `contract/fixtures/`, `contract/CHANGELOG.md`),
+   `design/`, `features/`, `decisions.md`, `open-questions.md` (câu hỏi kèm mặc định); chạy `bash scripts/status.sh`.
+   **Link PR docs** là thứ chuyển cho dev, QC. Test case QC viết sau khi merge, PR riêng `qc: <ID> …`.
 7. Làm một việc `Tn` ở repo code: đọc phiếu việc + contract, `bash docs/scripts/docs-ref.sh --set`, viết test trước
    (đọc JSON mẫu, cho thấy đỏ) rồi code cho xanh; nhánh `feature/<ID>-Tn`, commit và PR có `[<ID>-Tn]` trong tiêu đề,
    mở PR **draft**. Merge do người quyết.
@@ -65,11 +62,11 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 
 | Vai | Viết / chịu trách nhiệm |
 |---|---|
-| PM / BA | Tạo issue; giữ `requirements/` (lời khách, biên bản, spec màn hình, prototype); hỏi khách, comment câu trả lời lên issue |
+| PM / BA | Tạo issue; giữ `requirements/` (lời khách, biên bản, spec màn hình, prototype); review `requirement.md` trong PR docs; hỏi khách các câu hỏi mở |
 | Tech lead | **Viết PR docs** từ issue: `changes/`, `scope.md`, `contract/`, `design/`, `features/`, `decisions.md`, `open-questions.md`; chia việc `Tn`; giữ `CLAUDE.md`, `claude-workflow.md`, `.claude/`, `scripts/` |
 | Lead BE + FE | `rules/` của phần mình |
 | Dev | Review PR docs; code, test theo PR docs đã merge; `traps.md` khi dính lỗi khó thấy |
-| QC | `qc/`: test case, chạy verify sau deploy; đóng issue sau khi tự kiểm |
+| QC | Review `features/` trong PR docs; `qc/`: test case, chạy verify sau deploy; đóng issue sau khi tự kiểm |
 
 ## 7. Git
 

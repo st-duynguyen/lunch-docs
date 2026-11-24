@@ -18,7 +18,7 @@ Một phiên làm được cả 3 repo. Claude tự đọc `CLAUDE.md`, `rules/`
 |---|---|---|---|
 | 1. Issue | `/issue-new khách nói: "…"` | Điền mẫu `yeu-cau`, cho xem trước, tạo issue trên GitHub | PM / BA kiểm, xác nhận |
 | 2. Phiếu việc | `/change-new <link issue>` | Chép yêu cầu vào `requirements/`, tạo `changes/<ID>-<slug>/`, chia `T1`, `T2` | Tech lead kiểm |
-| 3. PR docs | `Cập nhật contract, design, features cho thay đổi này: …` rồi `Tạo PR cho thay đổi này` | Sửa contract, JSON mẫu, scope, design, features, chạy `status.sh`, mở PR `Refs #<issue>` | Dev / tech lead review, **merge** |
+| 3. PR docs | `Cập nhật contract, design, features cho thay đổi này: …` rồi `Tạo PR cho thay đổi này` | Sửa contract, JSON mẫu, scope, design, features, chạy `status.sh`, mở PR `Refs #<issue>` | BA review `requirement.md`, QC review `features/`, dev / tech lead review phần còn lại, **merge** |
 | 4. Code | `/task <link PR docs> be` · `fe` · (trống = cả hai) | Test trước, code, PR draft `[<ID>-Tn]` | Review, **merge** |
 | 5. Test case | `/qc-test-cases theo <link PR docs>` | Thêm case, đánh `⚠` chỗ chưa có nguồn | Hỏi khách các `⚠` |
 | 6. Tiến độ | `bash scripts/progress.sh` | — | Đọc kết quả |
