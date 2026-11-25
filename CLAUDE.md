@@ -20,7 +20,11 @@ PR docs merge trước, PR code sau. Mỗi repo một nhánh việc, một PR.
 ## 3. Nguồn sự thật (theo thứ tự)
 
 `scope.md` → `contract/` → `design/` + `changes/` → `features/` → `qc/`.
-Hai nơi nói khác nhau → **dừng, báo**, không tự đoán rồi code tiếp.
+Ưu tiên độ tin cậy. Hai nơi nói khác nhau → **dừng**, không tự đoán rồi code tiếp:
+
+1. Báo **cả hai chỗ** (`file §N` + nội dung từng bên).
+2. Theo thứ tự trên, nói rõ nguồn nào **đúng** (đứng trước) và nguồn nào **cần sửa** (đứng sau).
+3. Đề xuất cách sửa nguồn đứng sau, nhưng **không tự sửa**: chờ người xác nhận.
 
 ## 4. Contract
 
