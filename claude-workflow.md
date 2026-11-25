@@ -17,14 +17,14 @@ Một phiên làm được cả 3 repo. Claude tự đọc `CLAUDE.md` và các 
 | Bước | Prompt mẫu | Claude làm | Người làm |
 |---|---|---|---|
 | 1. Issue | `/issue-new khách nói: "…"` | Điền mẫu `yeu-cau`, cho xem trước, tạo issue trên GitHub | PM / BA kiểm, xác nhận |
-| 2. Phiếu việc | `/change-new <link issue>` | Đọc issue, tạo `changes/<ID>-<slug>/` (requirement.md trỏ về issue), chia `T1`, `T2` | Tech lead kiểm |
-| 3. PR docs | `Cập nhật contract, design, features cho thay đổi này: …` rồi `Tạo PR cho thay đổi này` | Sửa contract, JSON mẫu, scope, design, features, chạy `status.sh`, mở PR `Refs #<issue>` | BA review, ổn thì BA **merge** |
+| 2. Requirements | `/requirements-update <link issue>` | Sửa spec màn hình trong `requirements/`, mở PR `Refs #<issue>` | BA kiểm, **merge** |
+| 3. PR docs | `/change-new <link issue> <quyết định nếu có>` | Tạo `changes/<ID>-<slug>/`, chia `T1`, `T2`; sửa scope, contract, JSON mẫu, design, features, open-questions; chạy `status.sh`, mở PR `Refs #<issue>` | Tech lead kiểm; BA review, ổn thì BA **merge** |
 | 4. Code | `/task <link PR docs> be` · `fe` · (trống = cả hai) | Đọc `rules/`, test trước, code, PR draft `[<ID>-Tn]` | Dev khác review, **merge** |
 | 5. Test case | `/qc-test-cases theo <link PR docs>` | Thêm case, đánh `⚠` chỗ chưa có nguồn | QC review; BA hỏi khách các `⚠` |
 | 6. Tiến độ | `bash scripts/progress.sh` | — | Đọc kết quả |
 | 7. Kiểm chứng | `/dev-verify order` | Chạy kịch bản `features/`, ghi `qc/runs/` | QC đóng issue |
 
-Bước 2–3 do tech lead làm trong một phiên. Bước 4 chỉ bắt đầu khi PR docs ở bước 3 đã merge (`CLAUDE.md` §4).
+Bước 2 chỉ cần khi khách đưa spec màn hình hoặc biên bản. Bước 4 chỉ bắt đầu khi PR docs ở bước 3 đã merge (`CLAUDE.md` §4).
 
 ## 3. Câu giao việc ngắn
 
