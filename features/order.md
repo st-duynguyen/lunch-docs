@@ -8,12 +8,12 @@ Tự động hóa: chưa có test e2e; nhãn ở §3 được `lunch-web/tests/r
 ## 1. Chức năng con
 
 - `xem-menu`: mở trang thấy danh sách món (gọi `GET /api/menus`).
-- `dat-mon`: chọn món, số lượng, bấm đặt (gọi `POST /api/orders`).
+- `dat-mon`: chọn món, số lượng, ghi chú (tùy chọn), bấm đặt (gọi `POST /api/orders`).
 - `xem-don`: xem lại đơn vừa đặt (chỉ qua API `GET /api/orders/{id}`, chưa có màn hình).
 
 ## 2. Đường đi của người dùng
 
-- Mở trang → chọn món → nhập số lượng → nút **Place order** → thông báo **Order placed**.
+- Mở trang → chọn món → nhập số lượng → ghi chú **Note** (tùy chọn) → nút **Place order** → thông báo **Order placed**.
 
 ## 3. Handles
 
@@ -21,6 +21,7 @@ Nhãn chuẩn trên màn hình. FE đặt đúng chữ này (gom ở `src/i18n/e
 
 | Handle | Nhãn |
 |---|---|
+| field-note | Note |
 | btn-order | Place order |
 | msg-done | Order placed |
 | msg-error | Could not place order |
