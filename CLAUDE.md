@@ -25,6 +25,7 @@ Hai nơi nói khác nhau → **dừng, báo**, không tự đoán rồi code ti�
 ## 4. Contract
 
 - Đổi field / endpoint / mã lỗi → **PR docs merge trước**, rồi mới PR code.
+- Chưa có trong contract đã merge vào `main` → **không code**; dừng, báo, chỉ tới `/change-new`.
 - Lỗi trả `{code, message}`; thời gian ISO-8601 `+07:00`.
 - Mỗi thông tin chỉ viết một lần; chỗ khác trỏ tới bằng `file §N`.
 
