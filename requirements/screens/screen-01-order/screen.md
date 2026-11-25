@@ -17,7 +17,7 @@ UC: UC-01 · Features: `features/order.md`
 **User làm được:**
 - Xem menu hôm nay
 - Chọn một món, số lượng từ 1 đến 5
-- Ghi chú cho món (không bắt buộc), tối đa 300 ký tự
+- Ghi chú cho món, tối đa 300 ký tự (bắt buộc hay không: chưa chốt)
 - Đặt món, thấy kết quả ngay
 
 **Giới hạn:** Mỗi lần đặt một món. Không sửa, không hủy đơn đã đặt trên màn này.
