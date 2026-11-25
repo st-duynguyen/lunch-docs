@@ -8,7 +8,7 @@ Mỗi mục có dòng `Fixture:` (đường dẫn tính từ `contract/`); `stat
 | Method | Path | Request | Response | Fixture |
 |---|---|---|---|---|
 | GET | `/api/menus` | — | `200 {items: Menu[]}` | `menus.json` |
-| POST | `/api/orders` | body `{menuId, quantity}` | `201 Order` · `422 VALIDATION_ERROR` | `order.json` |
+| POST | `/api/orders` | body `{menuId, quantity, note?}` | `201 Order` · `422 VALIDATION_ERROR` | `order.json` |
 | GET | `/api/orders/{id}` | — | `200 Order` · `404 NOT_FOUND` | `order.json` |
 
 ## 2. GET /api/menus
@@ -23,7 +23,7 @@ Fixture: fixtures/menus.json
 
 ## 3. POST /api/orders
 
-Request `{menuId, quantity}`; `quantity` 1–5. Sai dữ liệu → `422 VALIDATION_ERROR`.
+Request `{menuId, quantity, note?}`; `quantity` 1–5; `note` tùy chọn, tối đa 300 ký tự. Sai dữ liệu → `422 VALIDATION_ERROR`.
 
 Fixture: fixtures/order.json
 
@@ -32,6 +32,7 @@ Fixture: fixtures/order.json
 | id | string | |
 | menuId | string | |
 | quantity | int | 1–5 |
+| note | string \| null | ≤ 300 ký tự; không gửi → `null` |
 | status | Order.status | |
 | createdAt | string | ISO-8601 +07:00 |
 
@@ -46,6 +47,7 @@ Fixture: fixtures/order.json
 | id | string | |
 | menuId | string | |
 | quantity | int | 1–5 |
+| note | string \| null | ≤ 300 ký tự; không gửi → `null` |
 | status | Order.status | |
 | createdAt | string | ISO-8601 +07:00 |
 
@@ -53,7 +55,7 @@ Fixture: fixtures/order.json
 
 ```bash
 curl -s localhost:8001/api/menus
-curl -s -X POST localhost:8001/api/orders -H 'Content-Type: application/json' -d '{"menuId":"m1","quantity":1}'
+curl -s -X POST localhost:8001/api/orders -H 'Content-Type: application/json' -d '{"menuId":"m1","quantity":1,"note":"ít cay, không hành"}'
 curl -s localhost:8001/api/orders/o_001
 ```
 

@@ -8,12 +8,12 @@ Tự động hóa: chưa có test e2e; nhãn ở §3 được `lunch-web/tests/r
 ## 1. Chức năng con
 
 - `xem-menu`: mở trang thấy danh sách món (gọi `GET /api/menus`).
-- `dat-mon`: chọn món, số lượng, bấm đặt (gọi `POST /api/orders`).
+- `dat-mon`: chọn món, số lượng, ghi chú (tùy chọn, ≤ 300 ký tự), bấm đặt (gọi `POST /api/orders`).
 - `xem-don`: xem lại đơn vừa đặt (chỉ qua API `GET /api/orders/{id}`, chưa có màn hình).
 
 ## 2. Đường đi của người dùng
 
-- Mở trang → chọn món → nhập số lượng → nút **Place order** → thông báo **Order placed**.
+- Mở trang → chọn món → nhập số lượng → ghi chú (tùy chọn) → nút **Place order** → thông báo **Order placed**.
 
 ## 3. Handles
 
@@ -21,6 +21,7 @@ Nhãn chuẩn trên màn hình. FE đặt đúng chữ này (gom ở `src/i18n/e
 
 | Handle | Nhãn |
 |---|---|
+| input-note | Note |
 | btn-order | Place order |
 | msg-done | Order placed |
 | msg-error | Could not place order |
@@ -36,4 +37,7 @@ mở http://localhost:8002/?api=real.
   Đối chiếu: `curl -s localhost:8001/api/orders/o_001` → `status: PLACED`, `menuId: m1`.
 - **Bước 3: số lượng sai.** `curl -s -X POST localhost:8001/api/orders -H 'Content-Type: application/json'
   -d '{"menuId":"m1","quantity":6}'` → `422`, `code: VALIDATION_ERROR`.
+- **Bước 4: ghi chú.** `curl -s -X POST localhost:8001/api/orders -H 'Content-Type: application/json'
+  -d '{"menuId":"m1","quantity":1,"note":"ít cay, không hành"}'` → `201`, `note` đúng như gửi; note 301 ký tự → `422`,
+  `code: VALIDATION_ERROR`.
 - **Bằng chứng.** Ảnh màn hình sau bước 2 và output các lệnh `curl`, lưu vào `qc/runs/<ngày>-local-order.md`.
