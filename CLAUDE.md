@@ -76,6 +76,6 @@ Error.code:    VALIDATION_ERROR | NOT_FOUND
 ## 7. Git
 
 - Nhánh `feature/<ID>-<slug>` (docs) hoặc `feature/<ID>-Tn` (code), không commit thẳng `main`.
-- AI được tự commit, push nhánh việc, mở PR **draft**. PR thường, merge, push `main`, tạo issue, comment lên GitHub: hỏi người
-  (hook `.claude/hooks/guard.py` đọc `.claude/hooks/guard.conf`).
+- AI được tự commit, push nhánh việc, mở PR **draft**. PR thường, merge, tạo issue, comment lên GitHub: hỏi người.
+  Push `main`, force push: **chặn**, người tự chạy nếu cần (hook `.claude/hooks/guard.py` đọc `.claude/hooks/guard.conf`).
 - PR ghi `Refs #N`, không `Closes`: QC đóng issue sau khi tự kiểm.
